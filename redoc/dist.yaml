@@ -150,6 +150,121 @@ paths:
                 title: Weather not found
                 type: string
                 example: Not found
+    post:
+      tags:
+        - Current Weather Data
+      summary: Update current weather data for one location
+      description: >-
+        Access current weather data for any location on Earth including over
+        200,000 cities! Current weather is frequently updated based on global
+        models and data from more than 40,000 weather stations.
+      operationId: UpdateWeatherData
+      parameters:
+        - $ref: '#/components/parameters/q'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/lat'
+      x-codeSamples:
+        - lang: 'cURL'
+          label: 'CLI'
+          source: |
+            curl --request POST \
+              --url 'https://your.example.com/api/example/cluster' \
+              --data '{}'
+        - lang: 'Python'
+          source: |
+            some python code samples.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/200'
+        '404':
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+  /nextweather:
+    get:
+      tags:
+        - Test Tags
+      summary: Update current weather data for one location
+      description: >-
+        Access current weather data for any location on Earth including over
+        200,000 cities! Current weather is frequently updated based on global
+        models and data from more than 40,000 weather stations.
+      operationId: GetWeatherForNextDay
+      parameters:
+        - $ref: '#/components/parameters/q'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/lat'
+      x-codeSamples:
+        - lang: 'cURL'
+          label: 'CLI'
+          source: |
+            curl --request POST \
+              --url 'https://your.example.com/api/example/cluster' \
+              --data '{}'
+        - lang: 'Python'
+          source: |
+            some python code samples.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/200'
+        '404':
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+    delete:
+      tags:
+        - Next Days Weather Data
+      summary: Update current weather data for one location
+      description: >-
+        Access current weather data for any location on Earth including over
+        200,000 cities! Current weather is frequently updated based on global
+        models and data from more than 40,000 weather stations.
+      operationId: DeleteWeatherForNextDay
+      parameters:
+        - $ref: '#/components/parameters/q'
+        - $ref: '#/components/parameters/id'
+        - $ref: '#/components/parameters/lat'
+      x-codeSamples:
+        - lang: 'cURL'
+          label: 'CLI'
+          source: |
+            curl --request POST \
+              --url 'https://your.example.com/api/example/cluster' \
+              --data '{}'
+        - lang: 'Python'
+          source: |
+            some python code samples.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/200'
+        '404':
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
 security:
   - app_id: []
 tags:
@@ -157,11 +272,14 @@ tags:
     description: Get current weather details
   - name: Test Tags
     description: Test how tags work
+  - name: Next Days Weather Data
+    description: Next days Weather Data
 x-tagGroups:
   - name: Weather
     tags:
       - Current Weather Data
-  - name: Test
+      - Next Days Weather Data
+  - name: Test Tag Group
     tags:
       - Test Tags
 externalDocs:
